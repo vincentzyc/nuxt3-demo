@@ -28,7 +28,7 @@
 <script lang="ts" setup>
 import "./style.less";
 
-let isFinished = ref(false),
+let isFinished = ref(true),
   endTime = ref(0);
 
 function finished() {
@@ -41,7 +41,10 @@ function getDayLoopEndTime() {
 }
 function initCountDown() {
   endTime.value = getDayLoopEndTime() - Date.now();
+  isFinished.value = false;
 }
 
-initCountDown();
+onMounted(() => {
+  initCountDown();
+})
 </script>
