@@ -13,6 +13,7 @@ const { data } = await useFetch('/api/hello');
 <template>
   <div class="wrapper">
     <img src="~/assets/img/home/header.jpg" alt="靓号抢购" class="widthfull" />
+    <CountDown class="mg-b10" />
     <!-- <CountDown class="mg-b10" />
     <div class="form-wrapper">
       <BaseForm animteBtn />
@@ -33,17 +34,17 @@ const { data } = await useFetch('/api/hello');
   </div>
 </template>
 
-<!-- <script setup lang="ts">
-import { expensesText } from './static-data';
-import img3 from '@/assets/img/home/img3.jpg';
-import { getBaseData } from '@/composition/business/useGetPidData';
+<script setup lang="ts">
+// import { expensesText } from './static-data';
+// import img3 from '@/assets/img/home/img3.jpg';
+// import { getBaseData } from '@/composition/business/useGetPidData';
 
-let show = ref(false);
-function showExpenses() {
-  show.value = true;
-}
-function close() {
-  show.value = false;
-}
-getBaseData();
-</script> -->
+// let show = ref(false);
+// function showExpenses() {
+//   show.value = true;
+// }
+// function close() {
+//   show.value = false;
+// }
+// getBaseData();
+</script>
