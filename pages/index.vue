@@ -14,6 +14,7 @@ const { data } = await useFetch('/api/hello');
   <div class="wrapper">
     <img src="~/assets/img/home/header.jpg" alt="靓号抢购" class="widthfull" />
     <CountDown class="mg-b10" />
+    <MarqueeSingle class="mg10" />
     <!-- <CountDown class="mg-b10" />
     <div class="form-wrapper">
       <BaseForm animteBtn />
