@@ -15,11 +15,17 @@ const { data } = await useFetch('/api/hello');
     <img src="~/assets/img/home/header.jpg" alt="靓号抢购" class="widthfull" />
     <CountDown class="mg-b10" />
     <MarqueeSingle class="mg10" />
-    <!-- <CountDown class="mg-b10" />
+    <img src="@/assets/img/home/img1.jpg" alt="产品说明" class="widthfull" />
+    <img src="@/assets/img/home/img2.jpg" alt="产品说明" class="widthfull" />
+    <div class="text-center expenses-wrap">
+      <span class="expenses-text" @click="showExpenses()">
+        <img src="@/assets/img/home/img4.jpg" alt="资费详情说明" class="widthfull" />
+      </span>
+    </div>
+    <!--
     <div class="form-wrapper">
       <BaseForm animteBtn />
     </div>
-    <MarqueeSingle class="mg10" />
     <img src="@/assets/img/home/img1.jpg" alt="产品说明" class="widthfull" />
     <img src="@/assets/img/home/img2.jpg" alt="产品说明" class="widthfull" />
     <div class="text-center expenses-wrap">
@@ -40,10 +46,10 @@ const { data } = await useFetch('/api/hello');
 // import img3 from '@/assets/img/home/img3.jpg';
 // import { getBaseData } from '@/composition/business/useGetPidData';
 
-// let show = ref(false);
-// function showExpenses() {
-//   show.value = true;
-// }
+let show = ref(false);
+function showExpenses() {
+  show.value = true;
+}
 // function close() {
 //   show.value = false;
 // }
