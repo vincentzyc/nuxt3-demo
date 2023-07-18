@@ -15,11 +15,11 @@ const { data } = await useFetch('/api/hello');
     <img src="~/assets/img/home/header.jpg" alt="靓号抢购" class="widthfull" />
     <CountDown class="mg-b10" />
     <MarqueeSingle class="mg10" />
-    <img src="@/assets/img/home/img1.jpg" alt="产品说明" class="widthfull" />
-    <img src="@/assets/img/home/img2.jpg" alt="产品说明" class="widthfull" />
+    <img src="~/assets/img/home/img1.jpg" alt="产品说明" class="widthfull" />
+    <img src="~/assets/img/home/img2.jpg" alt="产品说明" class="widthfull" />
     <div class="text-center expenses-wrap">
       <span class="expenses-text" @click="showExpenses()">
-        <img src="@/assets/img/home/img4.jpg" alt="资费详情说明" class="widthfull" />
+        <img src="~/assets/img/home/img4.jpg" alt="资费详情说明" class="widthfull" />
       </span>
     </div>
     <!--
