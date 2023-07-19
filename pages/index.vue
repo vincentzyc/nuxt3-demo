@@ -2,9 +2,9 @@
   <div class="wrapper">
     <img src="~/assets/img/home/header.jpg" alt="靓号抢购" class="widthfull" />
     <CountDown class="mg-b10" />
-    <!-- <div class="form-wrapper">
+    <div class="form-wrapper">
       <BaseForm animteBtn />
-    </div> -->
+    </div>
     <MarqueeSingle class="mg10" />
     <img src="~/assets/img/home/img1.jpg" alt="产品说明" class="widthfull" />
     <img src="~/assets/img/home/img2.jpg" alt="产品说明" class="widthfull" />
