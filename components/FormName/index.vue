@@ -14,8 +14,6 @@
 </template>
 
 <script lang="ts" setup>
-// import { checkName } from '@/composition/business/useVerifyData'
-
 const props = defineProps({
   modelValue: {
     required: true,
