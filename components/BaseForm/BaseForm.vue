@@ -1,6 +1,7 @@
 <template>
   <div class="form-wrap">
     <FormName id="custName" v-model="formData.custName"></FormName>
+    <FormAddress id="address" v-model="formData.address"></FormAddress>
     <!-- <FormPhone id="contactNumber" v-model="formData.contactNumber"></FormPhone>
     <div v-show="showOtherForm && formData.showForm">
       <FormIDCard id="idCardNo" v-model="formData.idCardNo"></FormIDCard>
