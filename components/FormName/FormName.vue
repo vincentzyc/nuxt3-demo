@@ -15,25 +15,11 @@
 
 <script lang="ts" setup>
 import { checkName } from '~/utils/business/verify-data';
-
-interface TypeModelProps {
-  modelValue: string;
-}
-
-interface TypeModelEmits {
-  (event: 'update:modelValue', newName: string): void;
-}
+import { TypeModelProps, TypeModelEmits, useModelValue } from '~/composition/use-model';
 
 const props = defineProps<TypeModelProps>();
 
 const emits = defineEmits<TypeModelEmits>();
 
-const model = computed<string>({
-  get() {
-    return props.modelValue;
-  },
-  set(val: string) {
-    emits('update:modelValue', val);
-  },
-});
+const { model } = useModelValue(props, emits);
 </script>
