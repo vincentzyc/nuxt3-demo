@@ -1,5 +1,6 @@
 <template>
   <div class="form-wrap">
+    {{ formData }}
     <FormName id="custName" v-model="formData.custName"></FormName>
     <FormAddress id="address" v-model="formData.address"></FormAddress>
     <!-- <FormPhone id="contactNumber" v-model="formData.contactNumber"></FormPhone>
