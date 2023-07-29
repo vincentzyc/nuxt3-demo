@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, ref } from "vue";
-import { checkCity } from "@/composition/business/useVerifyData"
+import { checkCity } from '~/utils/business/verify-data';
 
 export default defineComponent({
   name: "FormCity",
