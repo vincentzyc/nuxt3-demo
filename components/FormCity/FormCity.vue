@@ -4,7 +4,7 @@
     <div @click="openCityPicker()" class="form-input flex-auto flex align-middle disabled-input">
       <div class="wg-input" :class="{ placeholder: !showValue }">{{ showValue ? showValue : "请选择收货城市" }}</div>
     </div>
-    <CityPicker @selected="closePicker" :locationCity="locationCity" ref="domCityPicker" v-model:show="showPicker" />
+    <!-- <CityPicker @selected="closePicker" :locationCity="locationCity" ref="domCityPicker" v-model:show="showPicker" /> -->
   </div>
 </template>
 
@@ -19,10 +19,10 @@ export default defineComponent({
       required: true,
       type: Array,
     },
-    locationCity: {
-      required: true,
-      type: Array,
-    },
+    // locationCity: {
+    //   required: true,
+    //   type: Array,
+    // },
   },
   emits: ["update:modelValue"],
   setup(props, { emit }) {
