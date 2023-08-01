@@ -5,6 +5,7 @@
     <FormName id="custName" v-model="formData.custName"></FormName>
     <FormIDCard id="idCardNo" v-model="formData.idCardNo"></FormIDCard>
     <FormAddress id="address" v-model="formData.address"></FormAddress>
+    <FormCity v-model="formData.addressArr" id="addressArr"></FormCity>
     <!-- <FormPhone id="contactNumber" v-model="formData.contactNumber"></FormPhone>
     <div v-show="showOtherForm && formData.showForm">
       <FormIDCard id="idCardNo" v-model="formData.idCardNo"></FormIDCard>
