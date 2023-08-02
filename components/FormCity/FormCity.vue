@@ -2,53 +2,51 @@
   <div class="flex align-middle form-item">
     <div class="form-label">收货城市</div>
     <div @click="openCityPicker()" class="form-input flex-auto flex align-middle disabled-input">
-      <div class="wg-input" :class="{ placeholder: !showValue }">{{ showValue ? showValue : "请选择收货城市" }}</div>
+      <div class="wg-input" :class="{ placeholder: !showValue }">{{ showValue ? showValue : '请选择收货城市' }}</div>
     </div>
-    <!-- <CityPicker @selected="closePicker" :locationCity="locationCity" ref="domCityPicker" v-model:show="showPicker" /> -->
+    <CityPicker @selected="closePicker" :locationCity="locationCity" ref="domCityPicker" v-model:show="showPicker" />
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, ref } from "vue";
+<script lang="ts" setup>
 import { checkCity } from '~/utils/business/verify-data';
 
-export default defineComponent({
-  name: "FormCity",
-  props: {
-    modelValue: {
-      required: true,
-      type: Array,
-    },
-    // locationCity: {
-    //   required: true,
-    //   type: Array,
-    // },
-  },
-  emits: ["update:modelValue"],
-  setup(props, { emit }) {
-    const domCityPicker = ref();
-    const showPicker = ref(false);
-    const showValue = computed(() => {
-      return props.modelValue.length > 0 ? props.modelValue.join(" ") : "";
-    });
+interface TypeModelProps {
+  modelValue: string[];
+}
 
-    const openCityPicker = () => {
-      showPicker.value = true;
-    };
-    const closePicker = (val: string[]) => {
-      if (Array.isArray(val) && val.length === 3) {
-        emit("update:modelValue", val);
-        checkCity(val);
-      }
-    };
-    return {
-      showPicker,
-      showValue,
-      domCityPicker,
-      checkCity,
-      openCityPicker,
-      closePicker,
-    };
+interface TypeModelEmits {
+  (event: 'update:modelValue', newName: string[]): void;
+}
+
+const props = defineProps<TypeModelProps>();
+
+const emits = defineEmits<TypeModelEmits>();
+
+const domCityPicker = ref();
+const showPicker = ref(false);
+const locationCity = ref([]);
+
+const model = computed<string[]>({
+  get() {
+    return props.modelValue;
+  },
+  set(val: string[]) {
+    emits('update:modelValue', val);
   },
 });
+
+const showValue = computed(() => {
+  return props.modelValue.length > 0 ? props.modelValue.join(' ') : '';
+});
+
+const openCityPicker = () => {
+  showPicker.value = true;
+};
+const closePicker = (val: string[]) => {
+  if (Array.isArray(val) && val.length === 3) {
+    emits('update:modelValue', val);
+    checkCity(val);
+  }
+};
 </script>
