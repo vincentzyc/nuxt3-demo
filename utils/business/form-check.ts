@@ -3,7 +3,6 @@ import { isMobile } from '@/utils/validate/mobile';
 
 const Check = {
   checkName(value: string) {
-    console.log(value)
     if (!value) return '请输入领卡姓名';
     if (/^[\u4e00-\u9fa5\\·]{2,20}$/.test(value)) return true;
     if (value.length < 2 || value.length > 20) return '姓名长度不能小于2或超过20';
