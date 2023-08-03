@@ -1,45 +1,33 @@
 <template>
   <div class="form-wrap">
     {{ formData }}
-    <FormPhone id="contactNumber" v-model="formData.contactNumber"></FormPhone>
     <FormName id="custName" v-model="formData.custName"></FormName>
+    <FormPhone id="contactNumber" v-model="formData.contactNumber"></FormPhone>
     <FormIDCard id="idCardNo" v-model="formData.idCardNo"></FormIDCard>
+    <FormCity id="addressArr" v-model="formData.addressArr"></FormCity>
     <FormAddress id="address" v-model="formData.address"></FormAddress>
-    <FormCity v-model="formData.addressArr" id="addressArr"></FormCity>
-    <!-- <FormPhone id="contactNumber" v-model="formData.contactNumber"></FormPhone>
-    <div v-show="showOtherForm && formData.showForm">
-      <FormIDCard id="idCardNo" v-model="formData.idCardNo"></FormIDCard>
-      <FormCity v-model="formData.addressArr" id="addressArr" :locationCity="mainStore.locationCity"></FormCity>
-      <FormAddress id="address" v-model="formData.address"></FormAddress>
-    </div>
-    <img
-      v-if="animteBtn"
-      src="@/assets/img/home/button.png"
-      alt="提交按钮"
-      class="breathlamp widthfull"
-      @click="submitOrder()"
-    />
     <van-button
-      @click="submitOrder()"
       type="primary"
       block
       round
       class="submit-button"
       color="linear-gradient(#eb4e4b,#e30023)"
-      v-else
+      @click="submitOrder()"
       >立即领取</van-button
     >
-    <Agreement title="填写并提交视为阅读并同意" :agrList="agrList" v-model:checked="checked" /> -->
+    <!-- 
+    <Agreement title="填写并提交视为阅读并同意" :agrList="agrList" v-model:checked="checked" /> 
+    -->
   </div>
 </template>
 
 <script lang="ts" setup>
-// import Check from '@/utils/business/form-check';
+// import Check from '~/utils/business/form-check';
 // import { useMainStore } from '@/pinia';
 // import { showToast } from 'vant';
 // import { closeLoading, openLoading } from '@/utils/loading';
 // import { CommonApi } from '@/api';
-// import { checkOut } from '@/composition/business/useVerifyData';
+import { checkOut } from '@/utils/business/verify-data';
 // import { reportMatomo } from '@/utils/report';
 import './style.less';
 
@@ -107,37 +95,37 @@ const formData = reactive({
 //   }
 // );
 
-// const submitOrder = async () => {
-//   var tip = checkOut(formData); //校验页面信息
-//   if (tip !== true) {
-//     showToast(tip);
-//     return false;
-//   }
-//   checked.value = true;
-
-//   openLoading('正在提交');
-//   const params = {
-//     url: window.location.href || '',
-//     pageId: mainStore.cjData?.pageId || '',
-//     pid: mainStore.pid || '',
-//     productCode: mainStore.cjData?.productCode || '',
-//     ...formData,
-//   };
-//   reportMatomo('点击提交按钮');
-//   emits('submit');
-//   // 调接口提交
-//   let res = await CommonApi.submitForm<Record<string, any>>(params);
-//   reportMatomo('提交接口返回', JSON.stringify(res));
-//   if (res.responseCode === '0') {
-//     successCallback({ resData: res, mediaCode: mainStore.cjData?.mediaCode });
-//   } else {
-//     const newParam = { pid: params.pid, url: window.location.href };
-//     let newRes = await CommonApi.pageIdLocation(newParam);
-//     mainStore.setCjData(newRes);
-//     closeLoading();
-//     showToast(res.msg);
-//   }
-// };
+const submitOrder = async () => {
+  const tip = checkOut(formData); //校验页面信息
+  if (tip !== true) {
+    showToast(tip);
+    return false;
+  }
+  //   checked.value = true;
+  console.log(formData);
+  //   openLoading('正在提交');
+  //   const params = {
+  //     url: window.location.href || '',
+  //     pageId: mainStore.cjData?.pageId || '',
+  //     pid: mainStore.pid || '',
+  //     productCode: mainStore.cjData?.productCode || '',
+  //     ...formData,
+  //   };
+  //   reportMatomo('点击提交按钮');
+  //   emits('submit');
+  //   // 调接口提交
+  //   let res = await CommonApi.submitForm<Record<string, any>>(params);
+  //   reportMatomo('提交接口返回', JSON.stringify(res));
+  //   if (res.responseCode === '0') {
+  //     successCallback({ resData: res, mediaCode: mainStore.cjData?.mediaCode });
+  //   } else {
+  //     const newParam = { pid: params.pid, url: window.location.href };
+  //     let newRes = await CommonApi.pageIdLocation(newParam);
+  //     mainStore.setCjData(newRes);
+  //     closeLoading();
+  //     showToast(res.msg);
+  //   }
+};
 
 // async function successCallback(resData: Record<string, any>) {
 //   let realLink = '';
