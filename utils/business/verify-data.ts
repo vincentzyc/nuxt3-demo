@@ -1,12 +1,9 @@
 import Check from '@/utils/business/form-check';
 import { scrollIntoView } from '@/utils/dom';
-// import { initfingerprint2, reportMatomo } from '@/utils/report';
 
 export const checkName = (v: string) => {
   const checkRes = Check.checkName(v);
   if (checkRes === true) {
-    // initfingerprint2();
-    // reportMatomo('输入框-姓名-name', v);
     return true;
   }
   showToast(checkRes);
@@ -14,8 +11,6 @@ export const checkName = (v: string) => {
 export const checkPhone = (v: string) => {
   const checkRes = Check.checkPhone(v);
   if (checkRes === true) {
-    // initfingerprint2();
-    // reportMatomo('手机号-手机号-phone', v);
     return true;
   }
   showToast(checkRes);
@@ -46,21 +41,18 @@ export const checkOut = (formData: Record<string, any>) => {
   //校验表单
   const checkedName = Check.checkName(formData.custName);
   if (checkedName !== true) {
-    // reportMatomo(`前端校验不通过-${checkedName}`);
     const dom = document.getElementById('custName');
     if (dom) scrollIntoView(dom);
     return checkedName;
   }
   const checkedPhone = Check.checkPhone(formData.contactNumber);
   if (checkedPhone !== true) {
-    // reportMatomo(`前端校验不通过-${checkedPhone}`);
     const dom = document.getElementById('contactNumber');
     if (dom) scrollIntoView(dom);
     return checkedPhone;
   }
   const checkedIDCard = Check.checkIDCard(formData.idCardNo);
   if (checkedIDCard !== true) {
-    // reportMatomo(`前端校验不通过-${checkedIDCard}`);
     const dom = document.getElementById('idCardNo');
     if (dom) scrollIntoView(dom);
     return checkedIDCard;
@@ -89,7 +81,6 @@ export const checkOut = (formData: Record<string, any>) => {
 
   const checkedAddress = Check.checkAddress(formData.address);
   if (checkedAddress !== true) {
-    // reportMatomo(`前端校验不通过-${checkedAddress}`);
     const dom = document.getElementById('address');
     if (dom) scrollIntoView(dom);
     return checkedAddress;
