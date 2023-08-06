@@ -18,21 +18,18 @@ export const checkPhone = (v: string) => {
 export const checkIDCard = (v: string) => {
   const checkRes = Check.checkIDCard(v);
   if (checkRes === true) {
-    // reportMatomo('输入框-身份证-idCard', v);
     return true;
   }
   showToast(checkRes);
 };
 export const checkCity = (v: string[]) => {
   if (Array.isArray(v) && v.length === 3) {
-    // reportMatomo('城市选择-城市-city', v.join(','));
     return true;
   }
 };
 export const checkAddress = (v: string) => {
   const checkRes = Check.checkAddress(v);
   if (checkRes === true) {
-    // reportMatomo('输入框-地址-address', v);
     return true;
   }
   showToast(checkRes);
