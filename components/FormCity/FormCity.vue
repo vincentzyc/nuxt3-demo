@@ -27,15 +27,6 @@ const domCityPicker = ref();
 const showPicker = ref(false);
 const locationCity = ref([]);
 
-const model = computed<string[]>({
-  get() {
-    return props.modelValue;
-  },
-  set(val: string[]) {
-    emits('update:modelValue', val);
-  },
-});
-
 const showValue = computed(() => {
   return props.modelValue.length > 0 ? props.modelValue.join(' ') : '';
 });
