@@ -41,12 +41,12 @@ function close() {
 
 useHead({
   title: 'Yun Yi',
+  htmlAttrs: {
+    lang: 'zh'
+  },
   // meta: [
   //   { name: 'description', content: 'My amazing site.' }
   // ],
-  // bodyAttrs: {
-  //   class: 'test'
-  // },
   // script: [ { children: 'console.log(\'Hello world\')' } ]
 })
 </script>
