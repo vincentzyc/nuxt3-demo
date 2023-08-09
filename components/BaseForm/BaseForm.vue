@@ -15,9 +15,7 @@
       @click="submitOrder()"
       >立即领取</van-button
     >
-    <!-- 
-    <Agreement title="填写并提交视为阅读并同意" :agrList="agrList" v-model:checked="checked" /> 
-    -->
+    <Agreement title="填写并提交视为阅读并同意" :agrList="agrList" v-model:checked="checked" class="mg-t10" />
   </div>
 </template>
 
@@ -59,21 +57,17 @@ const formData = reactive({
   idCardNo: '',
 });
 
-// let checked = ref(true),
-//   agrList = ref([
-//     {
-//       title: '《个人信息保护政策》',
-//       text: 'https://h5.lipush.com/h5/index.html?id=5523261663728019648',
-//     },
-//     {
-//       title: '《入网许可协议》',
-//       text: 'https://h5.lipush.com/h5/index.html?id=4554931263728179465',
-//     },
-//     {
-//       title: '《单独同意书》',
-//       text: 'https://h5.lipush.com/h5/index.html?id=7883210563728253535',
-//     },
-//   ]);
+let checked = ref(true),
+  agrList = ref([
+    {
+      title: '《个人信息保护政策》',
+      text: '个人信息保护政策',
+    },
+    {
+      title: '《入网许可协议》',
+      text: '入网许可协议',
+    },
+  ]);
 
 // const showOtherForm = computed(() => {
 //   if (formData.showForm) return true;
