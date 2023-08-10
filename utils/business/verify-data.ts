@@ -34,6 +34,7 @@ export const checkAddress = (v: string) => {
   }
   showToast(checkRes);
 };
+
 export const checkOut = (formData: Record<string, any>) => {
   //校验表单
   const checkedName = Check.checkName(formData.custName);
@@ -82,6 +83,8 @@ export const checkOut = (formData: Record<string, any>) => {
     if (dom) scrollIntoView(dom);
     return checkedAddress;
   }
+
+  if(!formData.checked) return '请勾选同意相关协议'
 
   return true;
 };
