@@ -15,7 +15,7 @@
       @click="submitOrder()"
       >立即领取</van-button
     >
-    <Agreement title="填写并提交视为阅读并同意" :agrList="agrList" v-model:checked="checked" class="mg-t10" />
+    <Agreement title="填写并提交视为阅读并同意" :agrList="agrList" v-model:checked="formData.checked" class="mg-t10" />
   </div>
 </template>
 
@@ -55,19 +55,19 @@ const formData = reactive({
   address: '',
   contactNumber: '',
   idCardNo: '',
+  checked: false,
 });
 
-let checked = ref(true),
-  agrList = ref([
-    {
-      title: '《个人信息保护政策》',
-      text: '个人信息保护政策',
-    },
-    {
-      title: '《入网许可协议》',
-      text: '入网许可协议',
-    },
-  ]);
+let agrList = ref([
+  {
+    title: '《个人信息保护政策》',
+    text: '个人信息保护政策',
+  },
+  {
+    title: '《入网许可协议》',
+    text: '入网许可协议',
+  },
+]);
 
 // const showOtherForm = computed(() => {
 //   if (formData.showForm) return true;
