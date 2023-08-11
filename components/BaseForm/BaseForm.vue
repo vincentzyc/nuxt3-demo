@@ -1,6 +1,5 @@
 <template>
   <div class="form-wrap">
-    {{ formData }}
     <FormName id="custName" v-model="formData.custName"></FormName>
     <FormPhone id="contactNumber" v-model="formData.contactNumber"></FormPhone>
     <FormIDCard id="idCardNo" v-model="formData.idCardNo"></FormIDCard>
@@ -26,14 +25,11 @@
 // import { closeLoading, openLoading } from '@/utils/loading';
 // import { CommonApi } from '@/api';
 import { checkOut } from '@/utils/business/verify-data';
-// import { reportMatomo } from '@/utils/report';
 import './style.less';
 
 // const FormCity = defineAsyncComponent(() => import('@/components/FormItem/FormCity.vue'));
 
-// const toutiaoDefaultLink = 'https://h5.lipush.com/h5/index.html?id=2021080216415100047'; // M001
-
-// const gdtDefaultLink = 'https://h5.lipush.com/h5/index.html?id=3804505262428528861'; // M002
+// const DEFAULTLINK = 'https://h5.lipush.com/h5/index.html?id=2021080216415100047';
 
 // defineProps<{
 //   animteBtn?: boolean;
@@ -69,25 +65,6 @@ let agrList = ref([
   },
 ]);
 
-// const showOtherForm = computed(() => {
-//   if (formData.showForm) return true;
-//   if (Check.checkPhone(formData.contactNumber) === true) {
-//     formData.showForm = true;
-//     return true;
-//   }
-//   return false;
-// });
-
-// watch(
-//   () => formData.addressArr,
-//   newValue => {
-//     if (Array.isArray(newValue) && newValue.length === 3) {
-//       formData.city = newValue[1];
-//       formData.district = newValue[2];
-//       formData.province = newValue[0];
-//     }
-//   }
-// );
 
 const submitOrder = async () => {
   const tip = checkOut(formData); //校验页面信息
@@ -95,7 +72,6 @@ const submitOrder = async () => {
     showToast(tip);
     return false;
   }
-  //   checked.value = true;
   console.log(formData);
   //   openLoading('正在提交');
   //   const params = {
@@ -105,13 +81,11 @@ const submitOrder = async () => {
   //     productCode: mainStore.cjData?.productCode || '',
   //     ...formData,
   //   };
-  //   reportMatomo('点击提交按钮');
   //   emits('submit');
   //   // 调接口提交
   //   let res = await CommonApi.submitForm<Record<string, any>>(params);
-  //   reportMatomo('提交接口返回', JSON.stringify(res));
   //   if (res.responseCode === '0') {
-  //     successCallback({ resData: res, mediaCode: mainStore.cjData?.mediaCode });
+  //     window.location.href = resData.url || DEFAULTLINK;
   //   } else {
   //     const newParam = { pid: params.pid, url: window.location.href };
   //     let newRes = await CommonApi.pageIdLocation(newParam);
@@ -120,19 +94,4 @@ const submitOrder = async () => {
   //     showToast(res.msg);
   //   }
 };
-
-// async function successCallback(resData: Record<string, any>) {
-//   let realLink = '';
-//   setTimeout(() => {
-//     closeLoading();
-//     if (resData?.url) {
-//       realLink = resData.url;
-//     } else if (resData.mediaCode === 'M002') {
-//       realLink = gdtDefaultLink;
-//     } else {
-//       realLink = toutiaoDefaultLink;
-//     }
-//     window.location.href = realLink;
-//   }, 300);
-// }
 </script>
