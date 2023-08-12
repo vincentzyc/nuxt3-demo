@@ -31,10 +31,6 @@ import './style.less';
 
 // const DEFAULTLINK = 'https://h5.lipush.com/h5/index.html?id=2021080216415100047';
 
-// defineProps<{
-//   animteBtn?: boolean;
-// }>();
-
 // const emits = defineEmits<{
 //   (e: 'submit'): void;
 // }>();
@@ -65,7 +61,6 @@ let agrList = ref([
   },
 ]);
 
-
 const submitOrder = async () => {
   const tip = checkOut(formData); //校验页面信息
   if (tip !== true) {
@@ -73,6 +68,15 @@ const submitOrder = async () => {
     return false;
   }
   console.log(formData);
+  showLoadingToast({
+    message: '正在提交...',
+    duration: 0,
+    loadingType: 'spinner',
+    forbidClick: true,
+  });
+  setTimeout(() => {
+    closeToast();
+  }, 3000);
   //   openLoading('正在提交');
   //   const params = {
   //     url: window.location.href || '',
