@@ -22,7 +22,7 @@
 // import Check from '~/utils/business/form-check';
 // import { useMainStore } from '@/pinia';
 // import { showToast } from 'vant';
-// import { closeLoading, openLoading } from '@/utils/loading';
+import { closeLoading, openLoading } from '@/utils/loading';
 // import { CommonApi } from '@/api';
 import { checkOut } from '@/utils/business/verify-data';
 import './style.less';
@@ -68,16 +68,10 @@ const submitOrder = async () => {
     return false;
   }
   console.log(formData);
-  showLoadingToast({
-    message: '正在提交...',
-    duration: 0,
-    loadingType: 'spinner',
-    forbidClick: true,
-  });
+  openLoading('正在提交');
   setTimeout(() => {
-    closeToast();
+    closeLoading();
   }, 3000);
-  //   openLoading('正在提交');
   //   const params = {
   //     url: window.location.href || '',
   //     pageId: mainStore.cjData?.pageId || '',
