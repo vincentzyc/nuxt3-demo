@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 // import Check from '~/utils/business/form-check';
-// import { useMainStore } from '@/pinia';
+import { useMainStore } from '@/pinia';
 // import { showToast } from 'vant';
 import { closeLoading, openLoading } from '@/utils/loading';
 import { CommonApi } from '@/api';
@@ -34,8 +34,6 @@ import './style.less';
 // const emits = defineEmits<{
 //   (e: 'submit'): void;
 // }>();
-
-// const mainStore = useMainStore();
 
 const formData = reactive({
   addressArr: [],
@@ -60,6 +58,21 @@ let agrList = ref([
     text: '入网许可协议',
   },
 ]);
+
+function setPgaePid() {
+  const mainStore = useMainStore();
+
+  const url = useRequestURL();
+
+  const searchParams = new URLSearchParams(url.searchParams);
+  const pid = searchParams.get('pid');
+
+  if (pid) mainStore.setPid(pid);
+
+  console.log(mainStore)
+}
+
+setPgaePid()
 
 const submitOrder = async () => {
   const tip = checkOut(formData);
