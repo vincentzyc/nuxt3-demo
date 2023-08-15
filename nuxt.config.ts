@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     port: 8010,
   },
   css: ['~/assets/css/base.css', '~/assets/css/main.less'],
-  modules: ['@vant/nuxt'],
+  modules: ['@vant/nuxt', '@pinia/nuxt'],
   vant: {
     lazyload: true,
   },
