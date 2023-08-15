@@ -34,6 +34,7 @@ import './style.less';
 // const emits = defineEmits<{
 //   (e: 'submit'): void;
 // }>();
+const mainStore = useMainStore();
 
 const formData = reactive({
   addressArr: [],
@@ -60,16 +61,10 @@ let agrList = ref([
 ]);
 
 function setPgaePid() {
-  const mainStore = useMainStore();
-
   const url = useRequestURL();
-
   const searchParams = new URLSearchParams(url.searchParams);
   const pid = searchParams.get('pid');
-
   if (pid) mainStore.setPid(pid);
-
-  console.log(mainStore)
 }
 
 setPgaePid()
