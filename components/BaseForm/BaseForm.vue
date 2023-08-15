@@ -23,7 +23,7 @@
 // import { useMainStore } from '@/pinia';
 // import { showToast } from 'vant';
 import { closeLoading, openLoading } from '@/utils/loading';
-// import { CommonApi } from '@/api';
+import { CommonApi } from '@/api';
 import { checkOut } from '@/utils/business/verify-data';
 import './style.less';
 
@@ -67,21 +67,22 @@ const submitOrder = async () => {
     showToast(tip);
     return false;
   }
-  console.log(formData);
   openLoading('正在提交');
-  setTimeout(() => {
-    closeLoading();
-  }, 3000);
-  //   const params = {
-  //     url: window.location.href || '',
-  //     pageId: mainStore.cjData?.pageId || '',
-  //     pid: mainStore.pid || '',
-  //     productCode: mainStore.cjData?.productCode || '',
-  //     ...formData,
-  //   };
+  // setTimeout(() => {
+  //   closeLoading();
+  // }, 3000);
+  const params = {
+    url: window.location.href || '',
+    // pageId: mainStore.cjData?.pageId || '',
+    // pid: mainStore.pid || '',
+    // productCode: mainStore.cjData?.productCode || '',
+    ...formData,
+  };
   //   emits('submit');
   //   // 调接口提交
-  //   let res = await CommonApi.submitForm<Record<string, any>>(params);
+  let res = await CommonApi.submitForm<Record<string, any>>(params);
+  console.log(res);
+  closeLoading();
   //   if (res.responseCode === '0') {
   //     window.location.href = resData.url || DEFAULTLINK;
   //   } else {
