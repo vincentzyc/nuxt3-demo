@@ -62,15 +62,12 @@ let agrList = ref([
 ]);
 
 const submitOrder = async () => {
-  const tip = checkOut(formData); //校验页面信息
+  const tip = checkOut(formData);
   if (tip !== true) {
     showToast(tip);
     return false;
   }
   openLoading('正在提交');
-  // setTimeout(() => {
-  //   closeLoading();
-  // }, 3000);
   const params = {
     url: window.location.href || '',
     // pageId: mainStore.cjData?.pageId || '',
