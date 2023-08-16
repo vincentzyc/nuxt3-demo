@@ -60,15 +60,6 @@ let agrList = ref([
   },
 ]);
 
-function setPgaePid() {
-  const url = useRequestURL();
-  const searchParams = new URLSearchParams(url.searchParams);
-  const pid = searchParams.get('pid');
-  if (pid) mainStore.setPid(pid);
-}
-
-setPgaePid()
-
 const submitOrder = async () => {
   const tip = checkOut(formData);
   if (tip !== true) {
@@ -78,9 +69,7 @@ const submitOrder = async () => {
   openLoading('正在提交');
   const params = {
     url: window.location.href || '',
-    // pageId: mainStore.cjData?.pageId || '',
-    // pid: mainStore.pid || '',
-    // productCode: mainStore.cjData?.productCode || '',
+    pid: mainStore.urlParams.pid || '',
     ...formData,
   };
   //   emits('submit');
