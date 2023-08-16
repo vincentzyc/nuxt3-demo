@@ -18,7 +18,6 @@
       <div class="agreement-confirm" @click="close()">我知道了</div>
     </van-popup>
     <img alt="领卡流程" class="widthfull" v-lazy="img3" />
-
   </div>
 </template>
 
@@ -40,24 +39,24 @@ function showExpenses() {
 function close() {
   show.value = false;
 }
-// getBaseData();
 
 useHead({
   title: 'Yun Yi',
   htmlAttrs: {
-    lang: 'zh'
+    lang: 'zh',
   },
   // meta: [
   //   { name: 'description', content: 'My amazing site.' }
   // ],
   // script: [ { children: 'console.log(\'Hello world\')' } ]
-})
+});
 
 function setPgaePid() {
   const url = useRequestURL();
   const searchParams = new URLSearchParams(url.searchParams);
-  const params = Object.fromEntries(searchParams.entries())
+  const params = Object.fromEntries(searchParams.entries());
   mainStore.setUrlParams(params);
+  // getBaseData();
 }
-setPgaePid()
+setPgaePid();
 </script>
