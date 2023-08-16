@@ -25,10 +25,13 @@
 <script setup lang="ts">
 import { expensesText } from '~/assets/js/static-data';
 import img3 from '~/assets/img/home/img3.jpg';
+import { useMainStore } from '@/pinia';
 
 // const { data } = await useFetch('/api/hello');
 
 // import { getBaseData } from '@/composition/business/useGetPidData';
+
+const mainStore = useMainStore();
 
 let show = ref(false);
 function showExpenses() {
@@ -49,4 +52,12 @@ useHead({
   // ],
   // script: [ { children: 'console.log(\'Hello world\')' } ]
 })
+
+function setPgaePid() {
+  const url = useRequestURL();
+  const searchParams = new URLSearchParams(url.searchParams);
+  const params = Object.fromEntries(searchParams.entries())
+  mainStore.setUrlParams(params);
+}
+setPgaePid()
 </script>
