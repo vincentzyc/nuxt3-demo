@@ -3,8 +3,8 @@ import { defineStore } from 'pinia';
 
 export const useMainStore = defineStore('main', {
   state: () => ({
+    urlParams: {} as Record<string, string>,
     counter: 0,
-    pid: '',
     cjData: null as PageIdLocation | null,
   }),
   getters: {
@@ -15,8 +15,8 @@ export const useMainStore = defineStore('main', {
     locationCity: state => [state.cjData?.province || '', state.cjData?.city || ''],
   },
   actions: {
-    setPid(payload: string) {
-      this.pid = payload;
+    setUrlParams(payload: Record<string, string>) {
+      this.urlParams = payload;
     },
     setCjData(payload: PageIdLocation | null) {
       this.cjData = payload;
