@@ -19,9 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-// import Check from '~/utils/business/form-check';
 import { useMainStore } from '@/pinia';
-// import { showToast } from 'vant';
 import { closeLoading, openLoading } from '@/utils/loading';
 import { CommonApi } from '@/api';
 import { checkOut } from '@/utils/business/verify-data';
@@ -34,6 +32,7 @@ import './style.less';
 // const emits = defineEmits<{
 //   (e: 'submit'): void;
 // }>();
+//   emits('submit');
 const mainStore = useMainStore();
 
 const formData = reactive({
@@ -72,19 +71,9 @@ const submitOrder = async () => {
     pid: mainStore.urlParams.pid || '',
     ...formData,
   };
-  //   emits('submit');
-  //   // 调接口提交
   let res = await CommonApi.submitForm<Record<string, any>>(params);
   console.log(res);
   closeLoading();
-  //   if (res.responseCode === '0') {
-  //     window.location.href = resData.url || DEFAULTLINK;
-  //   } else {
-  //     const newParam = { pid: params.pid, url: window.location.href };
-  //     let newRes = await CommonApi.pageIdLocation(newParam);
-  //     mainStore.setCjData(newRes);
-  //     closeLoading();
-  //     showToast(res.msg);
-  //   }
+  showDialog({ message: '提交成功' });
 };
 </script>
