@@ -8,7 +8,7 @@
      let dom = scrollTop === document.documentElement.scrollTop ? document.documentElement : document.body;
      easeout(dom, 0);
    */
-export function easeout(dom: HTMLElement, destination = 0, rate = 5): void {
+export function easeout(dom: HTMLElement, destination: number = 0, rate: number = 5): void {
   let position = dom.scrollTop;
   if (position === destination || typeof destination !== 'number' || rate === 0) {
     return;
@@ -37,7 +37,7 @@ export function easeout(dom: HTMLElement, destination = 0, rate = 5): void {
  * @param {Object} el 当前dom元素
  * @param {Number} offset 元素距离顶部的偏移量
  */
-export function scrollIntoView(el: HTMLElement, offset = 200): void {
+export function scrollIntoView(el: HTMLElement, offset: number = 200): void {
   if (!el) return;
   if (typeof offset !== 'number') return;
   const clientRect = el.getBoundingClientRect();
