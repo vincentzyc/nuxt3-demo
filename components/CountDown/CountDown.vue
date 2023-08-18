@@ -6,17 +6,15 @@
           <span class="countdown-timeblock" v-if="timeData.days > 0">{{ timeData.days }}</span>
           <span class="countdown-colon" v-if="timeData.days > 0">天</span>
           <span class="countdown-timeblock" v-if="timeData.days > 0 || timeData.hours > 0">{{
-            timeData.hours > 9 ? timeData.hours : "0" + timeData.hours
+            timeData.hours > 9 ? timeData.hours : '0' + timeData.hours
           }}</span>
           <span class="countdown-colon" v-if="timeData.days > 0 || timeData.hours > 0">时</span>
           <span class="countdown-timeblock" v-if="timeData.days > 0 || timeData.hours > 0 || timeData.minutes > 0">{{
-            timeData.minutes > 9 ? timeData.minutes : "0" + timeData.minutes
+            timeData.minutes > 9 ? timeData.minutes : '0' + timeData.minutes
           }}</span>
-          <span class="countdown-colon" v-if="timeData.days > 0 || timeData.hours > 0 || timeData.minutes > 0"
-            >分</span
-          >
+          <span class="countdown-colon" v-if="timeData.days > 0 || timeData.hours > 0 || timeData.minutes > 0">分</span>
           <span class="countdown-timeblock">{{
-            timeData.seconds > 9 ? timeData.seconds : "0" + timeData.seconds
+            timeData.seconds > 9 ? timeData.seconds : '0' + timeData.seconds
           }}</span>
           <span class="countdown-colon">秒</span>
         </template>
@@ -26,8 +24,6 @@
 </template>
 
 <script lang="ts" setup>
-import "./style.less";
-
 let isFinished = ref(true),
   endTime = ref(0);
 
@@ -46,5 +42,9 @@ function initCountDown() {
 
 onMounted(() => {
   initCountDown();
-})
+});
 </script>
+
+<style scoped lang="less">
+@import './style.less';
+</style>
