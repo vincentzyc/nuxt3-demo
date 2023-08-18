@@ -27,6 +27,13 @@ import img3 from '~/assets/img/home/img3.jpg';
 import { CommonApi } from '@/api';
 import { useMainStore } from '@/pinia';
 
+useHead({
+  title: 'Yun Yi',
+  htmlAttrs: {
+    lang: 'zh',
+  },
+});
+
 // const { data } = await useFetch('/api/hello');
 
 // import { getBaseData } from '@/composition/business/useGetPidData';
@@ -40,17 +47,6 @@ function showExpenses() {
 function close() {
   show.value = false;
 }
-
-useHead({
-  title: 'Yun Yi',
-  htmlAttrs: {
-    lang: 'zh',
-  },
-  // meta: [
-  //   { name: 'description', content: 'My amazing site.' }
-  // ],
-  // script: [ { children: 'console.log(\'Hello world\')' } ]
-});
 
 async function getBaseData(pid: string, href: string) {
   const mainStore = useMainStore();
