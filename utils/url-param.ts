@@ -10,7 +10,7 @@ export function getUrlParam(): Record<string, any>;
  * @param {String} name 参数名称(不传则返回一个全部参数对象)
  */
 export function getUrlParam(name?: string | null, newUrl?: string) {
-  const href = newUrl || window?.location?.href,
+  const href = newUrl || window?.location?.href || '',
     i = href.indexOf('?');
   if (i < 0) return null;
   const str = href.slice(i);
