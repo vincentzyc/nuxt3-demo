@@ -67,7 +67,7 @@ const submitOrder = async () => {
   }
   openLoading('正在提交');
   const params = {
-    url: window?.location?.href || '',
+    url: (process.client && window?.location?.href) || '',
     pid: mainStore.urlParams.pid || '',
     ...formData,
   };

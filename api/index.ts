@@ -30,8 +30,8 @@ export const CommonApi = createInterface(Common) as ApiModuleCommon;
 
 export function env() {
   if (process.env.NODE_ENV === 'development') return 'development';
-  if (window?.location?.href.includes('test-')) return 'test';
-  if (window?.location?.href.includes('pre-')) return 'pre';
+  if (process.client&&window?.location?.href.includes('test-')) return 'test';
+  if (process.client&&window?.location?.href.includes('pre-')) return 'pre';
   return 'production';
 }
 

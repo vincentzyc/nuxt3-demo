@@ -14,7 +14,7 @@ export function easeout(dom: HTMLElement, destination: number = 0, rate: number 
     return;
   }
   // 不存在原生`requestAnimationFrame`，用`setTimeout`模拟替代
-  if (!window.requestAnimationFrame) {
+  if (process.client && !window?.requestAnimationFrame) {
     window.requestAnimationFrame = function (fn) {
       return setTimeout(fn, 17);
     };
@@ -42,7 +42,7 @@ export function scrollIntoView(el: HTMLElement, offset: number = 200): void {
   if (typeof offset !== 'number') return;
   const clientRect = el.getBoundingClientRect();
   const isElementInViewport =
-    clientRect.top >= 0 && clientRect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+    clientRect.top >= 0 && clientRect.bottom <= (window?.innerHeight || document.documentElement.clientHeight);
   if (!isElementInViewport) {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
     const dom = scrollTop === document.documentElement.scrollTop ? document.documentElement : document.body;
