@@ -62,17 +62,19 @@ function initCity() {
   return (columns.value = CITY);
 }
 
-initCity();
-
 function confirm(v: PickerConfirmEventParams) {
+  console.log(v);
   isShow.value = false;
 }
 function cancel(v: PickerCancelEventParams) {
+  console.log(v);
   isShow.value = false;
 }
 
 function closedPopup() {
-  console.log('关闭弹窗');
+  console.log('关闭弹窗', selectCity.value);
   emits('selected', selectCity.value);
 }
+
+initCity();
 </script>
